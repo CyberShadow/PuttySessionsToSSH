@@ -50,6 +50,9 @@ void main()
 
 		config.writeln("Host ", session.name);
 		config.writeln("Hostname ", session.getValue("HostName").value_SZ);
+		auto port = session.getValue("PortNumber").value_DWORD;
+		if (port != 22)
+			config.writeln("Port ", port);
 		config.writeln("User ", session.getValue("UserName").value_SZ);
 		if (privateKey)
 			config.writeln("IdentityFile ~/.ssh/", privateKey);
